@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="total-ticket-price">
-                <h4 id="firstClass-ticket-price">00</h4>
+                <h4 id="firstClass-ticket-price">000</h4>
             </div>
             <br>
             <br>
@@ -85,8 +85,9 @@
                     <button onclick=" handleTicket('economyClass', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
+            
             <div class="total-ticket-price">
-                <h4 id="economyClass-ticket-price">00</h4>
+                <h4 id="economyClass-ticket-price">000</h4>
             </div>
             <br><br>
             <div class="calculations">
@@ -95,7 +96,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <h5 id="sub-total">$000</h5>
                     </div>
                 </div>
 
@@ -104,7 +105,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <h5 id="vat">$00</h5>
                     </div>
                 </div>
                 <hr>
@@ -113,7 +114,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <h4>$550</h4>
+                        <h4 id="grand-total">$000</h4>
                     </div>
                 </div>
             </div>
@@ -123,6 +124,9 @@
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+        </div>
+        <div class="total-calculations-area">
+            
         </div>
         <div id="confirmation-area">
             <h2>Your Ticket Booked</h2>
@@ -150,7 +154,29 @@
                     ticketAmount = ticketNewCount * 100 ;
                 }
                 document.getElementById(ticket +'-ticket-price').innerText ="$" + ticketAmount;
+                subTotalPriceOfticket();
             }
+
+            function subTotalPriceOfticket(){
+               const firstClassInput= document.getElementById('firstClass-input');
+               const firstClassTotal = parseInt(firstClassInput.value);
+
+               const economyClassInput = document.getElementById('economyClass-input');
+               const economyClassTotal = parseInt(economyClassInput.value);
+
+               const subTotalPriceOfTicket = firstClassTotal * 150 + economyClassTotal * 100;
+               document.getElementById('sub-total').innerText = "$" + subTotalPriceOfTicket;
+
+               const tax = subTotalPriceOfTicket * 0.1 ;
+               document.getElementById('vat').innerText = "$" + tax;
+
+               const grandTotalPrice = subTotalPriceOfTicket + tax;
+               document.getElementById('grand-total').innerText = "$" + grandTotalPrice;
+
+            }
+
+
+           
 
 
 
