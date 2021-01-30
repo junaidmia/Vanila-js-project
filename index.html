@@ -120,18 +120,21 @@
             </div>
             <button type="button" id="book-now" class="btn btn-danger check-out">Book Now</button>
         </div>
+        
 
-        <div class="booking-content">
-            <h1>discover <br> around the world</h1>
+        <div id="booking-page" class="booking-content">
+            
+            <h1>discover <br> around the world</h1>  
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <div id="confirmation-area">
+                <h5>Your Ticket Booked</h5>
+                <h4> Successfully.</h4>
+            </div>
         </div>
         <div class="total-calculations-area">
             
         </div>
-        <div id="confirmation-area">
-            <h2>Your Ticket Booked</h2>
-            <h1> Successfully.</h1>
-        </div>
+       
         <script>
 
              function handleTicket(ticket, isIncrease){
@@ -175,7 +178,15 @@
 
             }
 
+            const bookNowBtn = document.getElementById("book-now");
+            bookNowBtn.addEventListener('click', function(){
+            const bookNowBtn =document.getElementById("booking-page");
+            bookNowBtn.style.display ="none";
+    
+            const transactionArea = document.getElementById("confirmation-area");
+            transactionArea.style.display = "block";
 
+        })
            
 
 
